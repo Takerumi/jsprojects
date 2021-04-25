@@ -1,12 +1,3 @@
-'use strict';
-
-// for (let i = 0; i < 11; i++) {
-//     if (i % 2 === 0) {
-//         continue;
-//     }
-//     console.log(i);
-// }
-
 /* Задание на урок:
 
 1) Автоматизировать вопросы пользователю про фильмы при помощи цикла
@@ -21,8 +12,6 @@
 
 4) Потренироваться и переписать цикл еще двумя способами*/
 
-'use strict';
-
 let numberOfFilms = +prompt('Сколько фильмов уже посмотрели?', '');
 
 const personalMovieDB = {
@@ -35,16 +24,43 @@ const personalMovieDB = {
 
 let answer1, answer2;
 
-for (let i = 0; i < 2; i++) {
+//цикл способ 1
+// for (let i = 0; i < 2; i++) {
+//     answer1 = prompt('Один из последних просмотренных фильмов?', '');
+//     answer2 = +prompt('На сколько оцените его?', '');
+//     if (answer1 != null && answer2 != null && answer1 != '' && answer2 != '' && answer1.length < 50) {
+//         personalMovieDB.movies[answer1] = answer2;
+//     } else {
+//         console.log('Error! Некорректные данные');
+//         i--;
+//     }
+// }
+//цикл способ 2
+// let i = 0
+// while (i < 2) {
+//     answer1 = prompt('Один из последних просмотренных фильмов?', '');
+//     answer2 = +prompt('На сколько оцените его?', '');
+//     if (answer1 != null && answer2 != null && answer1 != '' && answer2 != '' && answer1.length < 50) {
+//         personalMovieDB.movies[answer1] = answer2;
+//     } else {
+//         console.log('Error! Некорректные данные');
+//         i--;
+//     }
+//     i++;
+// }
+//цикл способ 3
+let i = 0
+do {
     answer1 = prompt('Один из последних просмотренных фильмов?', '');
     answer2 = +prompt('На сколько оцените его?', '');
-    if (answer1 == '' || answer1.length > 50) {
-        answer1 = prompt('Некорректное название. Попробуйте ещё раз', '');
+    if (answer1 != null && answer2 != null && answer1 != '' && answer2 != '' && answer1.length < 50) {
+        personalMovieDB.movies[answer1] = answer2;
+    } else {
+        console.log('Error! Некорректные данные');
+        i--;
     }
-    personalMovieDB.movies[answer1] = answer2;
-};
-
-console.log(personalMovieDB);
+    i++;
+} while (i < 2);
 
 if (personalMovieDB.count < 10) {
     console.log('Просмотрено довольно мало фильмов');
@@ -55,3 +71,5 @@ if (personalMovieDB.count < 10) {
 } else {
     console.log('Произошла ошибка');
 }
+
+console.log(personalMovieDB);
