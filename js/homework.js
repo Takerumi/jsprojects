@@ -78,33 +78,23 @@ function detectPersonalLevel() {
 
 detectPersonalLevel();
 
-
-/* Задание на урок:
-
-1) Первую часть задания повторить по уроку
-
-2) Создать функцию showMyDB, которая будет проверять свойство privat. Если стоит в позиции
-false - выводит в консоль главный объект программы
-
-3) Создать функцию writeYourGenres в которой пользователь будет 3 раза отвечать на вопрос 
-"Ваш любимый жанр под номером ${номер по порядку}". Каждый ответ записывается в массив данных
-genres
-
-P.S. Функции вызывать не обязательно*/
-
 function showMyDB() {
     if (personalMovieDB.privat == false) {
         console.log(personalMovieDB);
     }
 }
 
-showMyDB();
-
-let answer3;
+//можно сделать с передачей аргумента
+// function showMyDB(hidden) {
+//     id (!hidden) {
+//         console.log(personalMovieDB);
+//     }
+// }
+// showMyDB(personalMovieDB.privat)
 
 function writeYourGenres() {
     for (let i = 1; i < 4; i++) {
-        answer3 = prompt(`Ваш любимый жанр под номером ${i}?`, '');
+        const answer3 = prompt(`Ваш любимый жанр под номером ${i}?`, '');
     if (answer3 != null && answer3 != '') {
         personalMovieDB.genres.push(answer3);
     } else {
@@ -115,3 +105,4 @@ function writeYourGenres() {
 }
 
 writeYourGenres();
+showMyDB();
