@@ -97,3 +97,14 @@ Promise.all([test(1000), test(2000)]).then(() => {
 Promise.race([test(1000), test(2000)]).then(() => {
     console.log('First');
 });
+
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({name: 'Alex'}),
+    headers: {
+        'Content-type': 'application/json'
+    }
+})
+.then(response => response.json())
+.then(json => console.log(json));
